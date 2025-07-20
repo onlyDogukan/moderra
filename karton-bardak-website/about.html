@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - EcoBardak</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('../images/background-about.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .map-container {
+            height: 400px;
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Eco<span>Bardak</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="products.html">Ürünler</a></li>
+                    <li><a href="about.html" class="active">Hakkımızda</a></li>
+                    <li><a href="profile.html">Profilim</a></li>
+                </ul>
+                <div class="language-selector">
+                    <select id="language">
+                        <option value="tr">Türkçe</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <h2>Hakkımızda</h2>
+            <p>EcoBardak - Kalite ve Çevre Bilinciyle</p>
+        </section>
+
+        <section class="container">
+            <div class="section">
+                <h2>Kadın Girişimciliğinin Gücü</h2>
+                <p>EcoBardak olarak, kadın girişimciliğinin ekonomik kalkınmadaki kritik rolünün farkındayız. Kurucumuz Ayşe Yılmaz, bu vizyonla yola çıkarak hem çevre dostu ürünler sunmayı hem de kadın istihdamını artırmayı hedefledi.</p>
+                
+                <p>Bugün ekibimizin %70'ini kadın çalışanlar oluşturuyor ve üretimden pazarlamaya kadar her aşamada kadın emeğinin değerini ön plana çıkarıyoruz. Kadın girişimcilerin desteklenmesinin sürdürülebilir kalkınma için ne kadar önemli olduğunu biliyor ve bu bilinci yaygınlaştırmak için çalışıyoruz.</p>
+                
+                <p>Ürünlerimiz sadece müşterilerimizin ihtiyaçlarını karşılamakla kalmıyor, aynı zamanda kadınların ekonomik hayata katılımını güçlendiren bir sosyal misyonu da yerine getiriyor.</p>
+            </div>
+
+            <div class="map-container" id="map"></div>
+
+            <div class="contact-info">
+                <h3>Bize Ulaşın</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Adres:</strong> Örnek Mahallesi, Girişimci Kadınlar Sokak No:15, İstanbul</p>
+                <p><i class="fas fa-phone"></i> <strong>Telefon:</strong> <a href="tel:+905555555555">0555 555 55 55</a></p>
+                <p><i class="fas fa-envelope"></i> <strong>E-posta:</strong> <a href="mailto:info@ecobardak.com">info@ecobardak.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/905555555555">0555 555 55 55</a></p>
+                
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoBardak</h3>
+                    <p>Kaliteli ve çevre dostu karton bardaklar</p>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-phone"></i> 0555 555 55 55</p>
+                    <p><i class="fas fa-envelope"></i> info@ecobardak.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sosyal Medya</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 EcoBardak. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Harita oluşturma
+        const map = L.map('map').setView([41.015137, 28.979530], 15);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        L.marker([41.015137, 28.979530]).addTo(map)
+            .bindPopup('EcoBardak Mağazası<br>Örnek Mahallesi, Girişimci Kadınlar Sokak No:15')
+            .openPopup();
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
